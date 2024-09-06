@@ -50,11 +50,27 @@ app.get("/produtos/:produto?", (req, res) => {
   });
 });
 
+//Rota de pedidos
+app.get("/pedidos", (req, res) => {
+  // Arrays de objetos com os pedidos
+  const pedidos = [
+    { produto: "Celular", valor: 3000 },
+    { produto: "Computador", valor: 4000 },
+    { produto: "Tablet", valor: 2000 },
+    { produto: "Notebook", valor: 3800 },
+  ];
+  res.render("pedidos", { 
+    // Enviando o array de objetos para a página
+    pedidos: pedidos 
+  });
+});
+
 // Iniciando o servidor na porta 8080
-app.listen(8080, (error) => {
+const port = 8080;
+app.listen(port, (error) => {
   if (error) {
     console.log(`Ocorreu um erro: ${error}`);
   } else {
-    console.log(`Servidor iniciado com sucesso!`);
+    console.log(`Servidor iniciado com sucesso em: http://localhost:${port}`);
   }
 });
