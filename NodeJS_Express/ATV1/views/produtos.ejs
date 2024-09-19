@@ -3,4 +3,18 @@
 
 <h1>Produtos</h1>
 <hr>
+
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item">Produto</li>
+    <li class="list-group-item">Preço</li>
+    <li class="list-group-item">Categoria</li>
+  </ul>
+  <% produtos.forEach((produto) =>{%>
+  <ul class="list-group list-group-horizontal-sm">
+    <li id="tabela" class="list-group-item"><%= produto.produto %></li>
+    <li id="tabela" class="list-group-item"><%= produto.preco %></li>
+    <li id="tabela" class="list-group-item"><%= produto.categoria %></li>
+  </ul>
+  <% })%>
+ 
 <%- include ('partials/footer.ejs')%>

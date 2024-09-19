@@ -8,7 +8,7 @@ const app = express();
 app.set("view engine", "ejs");
 
 // Definir a pasta dos arquivos estáticos (public)
-app.set(express.static("public"));
+app.use(express.static("public"));
 
 // Criando a rota principal
 app.get("/", (req, res) => {
@@ -17,9 +17,8 @@ app.get("/", (req, res) => {
 });
 
 // Rota Clientes
-app.get("/clientes/:nome?/:cpf?/:endereco?", (req, res) => {
-  const cliente = req.params.cliente;
-  const listaClientes = [
+app.get("/clientes/", (req, res) => {
+  const clientes = [
     {
       nome: "Ana Flávia Kunzendorff",
       cpf: "123.456.789-01",
@@ -44,33 +43,63 @@ app.get("/clientes/:nome?/:cpf?/:endereco?", (req, res) => {
 
   // Renderizando a página clientes.ejs que está na pasta 'views'
   res.render("clientes", {
-    nome: nome,
-    cpf: cpf,
-    endereco: endereco,
+    clientes: clientes,
   });
 });
 
 // Rota Produtos
-app.get("/produtos/:nome?/:preco?/:categoria?", (req, res) => {
-  const nome = req.params.nome;
-  const preco = req.params.preco;
-  const categoria = req.params.categoria;
+app.get("/produtos/", (req, res) => {
+  const produtos = [
+    {
+      produto: "Alface",
+      preco: 5,
+      categoria: "Verduras",
+    },
+    {
+      produto: "Morango",
+      preco: 10,
+      categoria: "Frutas",
+    },
+    {
+      produto: "Batata",
+      preco: 6,
+      categoria: "Legumes",
+    },
+    {
+      produto: "Pitaya",
+      preco: 13,
+      categoria: "Frutas",
+    },
+  ];
 
   res.render("produtos", {
-    nome: nome,
-    preco: preco,
-    categoria: categoria,
+    produtos: produtos,
   });
 });
 
 // Rota pedidos
-app.get("/pedidos/:numero?/:valor?", (req, res) => {
-  const numero = req.params.numero;
-  const valor = req.params.valor;
+app.get("/pedidos/", (req, res) => {
+  const pedidos = [
+    {
+      numero: "159263147852",
+      valor: 82,
+    },
+    {
+      numero: "169487236548",
+      valor: 65,
+    },
+    {
+      numero: "948516234785",
+      valor: 43,
+    },
+    {
+      numero: "346781592146",
+      valor: 28,
+    },
+  ];
 
   res.render("pedidos", {
-    numero: numero,
-    valor: valor,
+    pedidos: pedidos,
   });
 });
 

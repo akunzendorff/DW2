@@ -3,4 +3,24 @@
 
 <h1>Pedidos</h1>
 <hr>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Número do pedido</th>
+      <th scope="col">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% pedidos.forEach((pedido) =>{%>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= pedido.numero %></td>
+      <td><%= pedido.valor %></td>
+    </tr>
+    <% })%>
+  </tbody>
+</table>
+
 <%- include ('partials/footer.ejs')%>

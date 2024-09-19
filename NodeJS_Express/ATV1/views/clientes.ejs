@@ -3,18 +3,17 @@
 <h1>Clientes</h1>
 <hr />
 
-<table border="1">
-  <tr>
-    <th>Nome:</th>
-    <th>CPF:</th>
-  </tr>
-  <tr>
-    <% clientes.forEach((cliente) =>{%>
-    <td><%= cliente.nome %></td>
-    <td><%= cliente.cpf%></td>
-    <td><%= cliente.endereco%></td>
-  </tr>
-  <% })%>
-</table>
+<ul class="list-group list-group-horizontal">
+  <li class="list-group-item">Nome</li>
+  <li class="list-group-item">CPF</li>
+  <li class="list-group-item">Endereço</li>
+</ul>
+<% clientes.forEach((cliente) =>{%>
+<ul class="list-group list-group-horizontal-sm">
+  <li class="list-group-item"><%= cliente.nome %></li>
+  <li class="list-group-item"><%= cliente.cpf %></li>
+  <li class="list-group-item"><%= cliente.endereco %></li>
+</ul>
+<% })%>
 
 <%- include ('partials/footer.ejs')%>
