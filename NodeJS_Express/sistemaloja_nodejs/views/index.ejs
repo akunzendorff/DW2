@@ -1,0 +1,43 @@
+<%- include('partials/navbar.ejs') %>
+<%- include('partials/header.ejs') %>
+
+<h1>Bem vindo! Gerencie aqui seu negocio.</h1>
+<hr>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card my-3 custom-card">
+        <div class="card-body">
+          <h5 class="card-title">Pedidos</h5>
+          <p class="card-text">Acesse aqui os pedidos realizados.</p>
+          <div class="text-left">
+            <a href="/views/pedidos.ejs" class="btn btn-primary">Acessar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card my-3 custom-card">
+        <div class="card-body">
+          <h5 class="card-title">Produtos</h5>
+          <p class="card-text">Acesse aqui os produtos cadastrados.</p>
+          <a href="/views/produtos.ejs" class="btn btn-primary">Acessar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card my-3 custom-card">
+        <div class="card-body">
+          <h5 class="card-title">Clientes</h5>
+          <p class="card-text">Acesse aqui o cadastro de seus clientes.</p>
+          <a href="/views/clientes.ejs" class="btn btn-primary">Acessar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
