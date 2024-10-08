@@ -1,28 +1,82 @@
-<%- include ('partials/navbar.ejs')%> 
-<%- include ('partials/header.ejs')%>
+<%- include ('partials/header.ejs') %> <%- include ('partials/navbar.ejs') %>
 
-<h1>Clientes</h1>
-<hr />
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Cadastrar cliente</h1>
+    </div>
+    <div class="card-body">
+      <form action="/clientes/new" method="post">
+        <label>Nome do cliente:</label>
+        <input
+          type="text"
+          name="nome"
+          id="nome"
+          placeholder="Insira o nome do cliente"
+          class="form-control"
+          required
+        />
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">CPF</th>
-      <th scope="col">Endereço</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% clientes.forEach((cliente) =>{%>
-    <tr>
-      <th scope="row">1</th>
-      <td><%= cliente.nome %></td>
-      <td><%= cliente.cpf %></td>
-      <td><%= cliente.endereco %></td>
-    </tr>
-    <% })%>
-  </tbody>
-</table>
+        <label>CPF do cliente:</label>
+        <input
+          type="text"
+          name="cpf"
+          id="cpf"
+          placeholder="Insira o cpf do cliente"
+          class="form-control"
+          required
+        />
 
-<%- include ('partials/footer.ejs')%>
+        <label>Endereço do cliente:</label>
+        <input
+          type="text"
+          name="endereco"
+          id="endereco"
+          placeholder="Insira o endereço do cliente"
+          class="form-control"
+          required
+        />
+        <br />
+        <input type="submit" class="btn btn-success" value="Cadastrar" />
+      </form>
+      <hr />
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Clientes</h1>
+    </div>
+    <div class="card-body">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nome:</th>
+            <th>CPF:</th>
+            <th>Endereço:</th>
+            <th colspan="2">Ações:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% clientes.forEach(cliente=> { %>
+          <tr>
+            <td><img src="imgs/avatar.png" width="30px" /></td>
+            <td><%= cliente.nome %></td>
+            <td><%= cliente.cpf %></td>
+            <td><%= cliente.endereco %></td>
+            <td><a href="/clientes/edit/<%= cliente.id %>" style="color: orange">Editar</a></td>
+            <td><a href="/clientes/delete/<%= cliente.id %>" onclick="return confirm('Deseja realmente deletar o cliente <%= cliente.nome%>?')" style="color: red">Deletar</a></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%- include ('partials/footer.ejs') %>
