@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+    Nossa Loja
+    </a>
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/clientes">Clientes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/produtos">Produtos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/pedidos">Pedidos</a>
+        </li>
+    </ul>
+    <span style="margin-left: auto;"> style que permite ir pra direita
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <% if (typeof loggedOut === "undefined") { %> <!-- verifica se o tipo da variavel loggedOut é indefinido/vazio -->
+                    <a href="/logout" class="nav-link">Fazer logout</a>
+                <% } else { %>
+                    <a href="/login" class="nav-link">Fazer login</a>
+                    <% } %>
+            </li>
+        </ul>
+    </span>
+</nav>
+<br>

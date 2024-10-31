@@ -10,21 +10,26 @@ import ProdutosController from "./controllers/ProdutosController.js";
 import PedidosController from "./controllers/PedidosController.js";
 import UsersController from "./controllers/UsersController.js";
 
+//Importando o gerador se sessões do express
 import session from "express-session";
 
+//Configurando o express-session
 app.use(
   session({
-    secret: "secret",
-    cookie: { maxAge: 3600000 },
+    secret: "lojasecret",
+    cookie: { maxAge: 3600000 }, //Sessão expira em uma hora
     saveUninitialized: false,
     resave: false,
   })
 );
 
+//Importando o middleware Auth
 import Auth from "./middleware/Auth.js";
 
+//Importando o express-flash
 import flash from "express-flash";
 
+//Configurando o express-flash
 app.use(flash());
 
 // Permite capturar dados vindos de formulários
@@ -62,9 +67,9 @@ app.use("/", PedidosController);
 app.use("/", UsersController);
 
 // ROTA PRINCIPAL
-app.get("/", function (req, res) {
+app.get("/", Auth, (req, res) => {
   res.render("index", {
-    message: req.flash(),
+    messages: req.flash(),
   });
 });
 
