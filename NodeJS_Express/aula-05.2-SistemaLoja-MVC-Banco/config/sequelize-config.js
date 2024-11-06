@@ -8,7 +8,7 @@ const connection = new Sequelize({
   username: "root",
   password: "",
   //Comente essa linha na primeira execução da aplicação
-  //database: 'loja',
+  database: 'loja',
   timezone: "-03:00",
 });
 
