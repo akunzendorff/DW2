@@ -1,0 +1,60 @@
+footer {
+    background-color: #cbdacc;
+    text-align: center;
+    padding: 25px;
+    color: #161616;
+    margin-top: 250px;
+
+}
+
+p{
+    text-align: center;
+    color: #161616;
+}
+
+.btn{
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#tabela{
+    text-align: center;
+    background-color: #ffffff;
+}
+
+body{
+    background-color: #e6fae7;
+}
+
+img{
+    width: 2000px;
+    height: 500px;
+}
+
+th, td {
+    padding: 10px;
+}
+
+a {
+    color:#000000;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.jumbotron{
+    margin-top: 50px;
+}
+
+ul {
+    list-style: square;
+    line-height: 30px;
+}
+
+nav {
+    background-color: #cbdacc;
+}
+
+.card{
+    background-color: #cbdacc;
+    margin-top: 100px;
+}

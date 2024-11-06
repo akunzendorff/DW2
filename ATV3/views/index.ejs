@@ -1,0 +1,28 @@
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/navbar.ejs') %>
+
+    <div class="container">
+        <div class="jumbotron">
+            <br>
+            <h1 class="display-5" style="text-align: center;"><strong>Bem-vindo(a) ao painel administrativo do seu HortiFruti!</strong></h1>
+            <p class="lead">Gerencie os clientes, pedidos e produtos do seu negócio.</p>
+            <hr class="my-4">
+            <p class="currentDate"></p>
+            </p>         
+          </div>
+        <div class="card">
+            <div class="card-header">
+                <h1>O que deseja acessar?</h1>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/clientes">Clientes</a></li>
+                    <li><a href="/produtos">Produtos</a></li>
+                    <li><a href="/pedidos">Pedidos</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+<%- include ('partials/footer.ejs') %>
