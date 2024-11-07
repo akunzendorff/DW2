@@ -3,7 +3,9 @@ const router = express.Router();
 
 import Produto from "../models/Produto.js";
 
-router.get("/produtos", function (req, res) {
+import Auth from '../middleware/Auth.js'
+
+router.get("/produtos", Auth, (req, res) => {
   Produto.findAll().then((produtos) => {
     res.render("produtos", {
       produtos: produtos,
@@ -11,7 +13,7 @@ router.get("/produtos", function (req, res) {
   });
 });
 
-router.post("/produtos/new", (req, res) => {
+router.post("/produtos/new", Auth, (req, res) => {
   const nome = req.body.nome;
   const preco = req.body.preco;
   const categoria = req.body.categoria;
@@ -25,7 +27,7 @@ router.post("/produtos/new", (req, res) => {
   });
 });
 
-router.get("/produtos/delete/:id", (req, res) => {
+router.get("/produtos/delete/:id", Auth, (req, res) => {
   const id = req.params.id;
 
   Produto.destroy({
@@ -42,7 +44,7 @@ router.get("/produtos/delete/:id", (req, res) => {
 });
 
 
-router.get("/produtos/edit/:id", (req, res) => {
+router.get("/produtos/edit/:id", Auth, (req, res) => {
   const id = req.params.id;
   Produto.findByPk(id)
     .then((produto) => {
@@ -55,7 +57,7 @@ router.get("/produtos/edit/:id", (req, res) => {
     });
 });
 
-router.post("/produtos/update/", (req, res) => {
+router.post("/produtos/update/", Auth, (req, res) => {
   const id = req.body.id;
   const nome = req.body.nome;
   const preco = req.body.preco;

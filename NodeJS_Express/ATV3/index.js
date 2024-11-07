@@ -62,14 +62,14 @@ app.use("/", PedidosController);
 app.use("/", UsersController);
 
 // ROTA PRINCIPAL
-app.get("/", function (req, res) {
+app.get("/", Auth, (req, res) => {
   res.render("index", {
-    message: req.flash(),
+    messages: req.flash(),
   });
 });
 
 // INICIA O SERVIDOR NA PORTA 8080
-app.listen(8080, function (erro) {
+app.listen(8080, (erro) => {
   if (erro) {
     console.log("Ocorreu um erro!");
   } else {
