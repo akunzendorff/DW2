@@ -35,9 +35,9 @@ const upload = multer({ dest: "public/uploads/" });
 
 // ROTA PRINCIPAL
 app.get("/", (req, res) => {
-  Galeria.findAll().then((imagens) => {
+  Galeria.findAll().then((filmes) => {
     res.render("index", {
-      imagens: imagens,
+      filmes: filmes,
     });
   });
 });
@@ -45,8 +45,14 @@ app.get("/", (req, res) => {
 // ROTA DE UPLOAD
 app.post("/upload", upload.single("file"), (req, res) => {
   const file = req.file.filename;
+  const titulo = req.body.titulo;
+  const genero = req.body.genero;
+  const ano = req.body.ano;
   Galeria.create({
     file: file,
+    titulo: titulo,
+    genero: genero,
+    ano: ano,
   });
   res.redirect("/");
 });
