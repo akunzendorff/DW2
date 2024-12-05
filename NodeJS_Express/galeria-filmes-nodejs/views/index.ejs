@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Galeria de filmes</title>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header text-center">
+                <h1>Galeria de filmes:</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <% filmes.forEach(filme => { %>
+                    <div class="col-md-3 m-auto text-center">
+                        <img src="/uploads/<%= filme.file %>" alt="Imagem" class="img-thumbnail">
+                        <ps>Título do Filme: <%= filme.titulo %></p>
+                        <p>Genero do Filme: <%= filme.genero %></p>
+                        <p>Ano do Filme: <%= filme.ano %></p>
+
+                    </div>
+                    <% }) %>
+                </div>
+                
+            </div>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <label>Título:</label>
+                <input type="titulo" name="titulo" class="form-control" placeholder="Insira o título do filme." required> <br>
+                <label>Gênero:</label>
+                <input type="genero" name="genero" class="form-control" placeholder="Insira o gênero do filme." required> <br>
+                <label>Ano de lançamento:</label>
+                <input type="ano" name="ano" class="form-control" placeholder="Insira o ano de lançamento do filme." required> <br>
+                <label for="">Insira a imagem do filme:</label>
+                <input type="file" name="file" class="form-control" required><br><br>
+                <input type="submit" value="Enviar" class="btn btn-success w-100">
+            </form>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+</html>
